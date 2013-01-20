@@ -1,23 +1,27 @@
 package com.im1x;
 
+import static org.junit.Assert.*;
+
 import java.io.File;
 
-import junit.framework.Assert;
-
 import org.junit.Test;
-
+/**
+ * 
+ * @author Vitaly Batrakov
+ *
+ */
 public class StreamCheckerTest {
 	StreamChecker streamChecker = new StreamChecker();
 
 
 	@Test
 	public void testCheckDirs() {
-		Assert.assertFalse(streamChecker.checkDirs());
+		assertFalse(streamChecker.checkDirs());
 		
 		streamChecker.setInputDir("Not empty");
 		streamChecker.setOutputDir("Not empty");
 		
-		Assert.assertTrue(streamChecker.checkDirs());
+		assertTrue(streamChecker.checkDirs());
 	}
 	
 	@Test
@@ -28,7 +32,7 @@ public class StreamCheckerTest {
 		streamChecker.setInputDir(inD);
 		streamChecker.setOutputDir(outD);
 		
-		Assert.assertTrue(streamChecker.existOrCreateDirs());
+		assertTrue(streamChecker.existOrCreateDirs());
 		
 		new File(inD).delete();
 		new File(outD).delete();
