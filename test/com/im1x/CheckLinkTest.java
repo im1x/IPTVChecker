@@ -1,8 +1,6 @@
 package com.im1x;
 
 import static org.junit.Assert.*;
-import junit.framework.Assert;
-
 import org.junit.Test;
 
 /**
@@ -20,6 +18,4 @@ public class CheckLinkTest {
 		assertEquals(0, checkLink.check("http://im1x.com", 1));
 		assertEquals(-1, checkLink.check("http://im1x.com:9999", 2500));
 	}
-	
-
 }
