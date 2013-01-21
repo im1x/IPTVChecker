@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.ConnectException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +54,7 @@ public class StreamChecker implements Runnable {
 	 */
 	protected boolean checkDirs() {
 		if (inputDir.isEmpty() || outputDir.isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Does not specify input folder or output file");
+			App.window.btnSetEnabled();
 			return false;
 		}
 		return true;
@@ -184,8 +185,9 @@ public class StreamChecker implements Runnable {
 	 * @param checkLink - class for check
 	 * @param timeout - timeout
 	 * @param checkCanalnames - check for duplicate channel names
+	 * @throws ConnectException if wrong URL
 	 */
-	private void putParam(String nameStream, String urlStream, CheckLink checkLink, int timeout, boolean checkCanalnames) {
+	private void putParam(String nameStream, String urlStream, CheckLink checkLink, int timeout, boolean checkCanalnames) throws ConnectException {
 
 		int checkRes = checkLink.check(urlStream, timeout);
 
