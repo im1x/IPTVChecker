@@ -25,7 +25,7 @@ public class CheckLink {
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setConnectTimeout(timeout);
 			conn.connect();
-			System.out.println(conn.getResponseCode());
+			//System.out.println(conn.getResponseCode());
 
 			if (conn.getResponseCode() == 200) {
 				conn.disconnect();
@@ -34,9 +34,8 @@ public class CheckLink {
 				conn.disconnect();
 				return 2;
 			}
-			System.out.println(conn.getResponseCode());
 		} catch (SocketTimeoutException e) {
-			System.out.println("timeout");
+			//System.out.println("timeout");
 			return 0;
 		} catch (ConnectException e) {
 			throw new ConnectException("Wrong URL");

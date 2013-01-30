@@ -157,10 +157,12 @@ public class StreamChecker implements Runnable {
 		try {
 
 			out = new BufferedWriter(new FileWriter(outputDir));
-			out.write("#EXTM3U\n");
+			out.write("#EXTM3U");
+			out.newLine();
 
 			for (int i = 0; i <= allOut.size() - 1; i++) {
-				out.write(allOut.get(i) + "\n");
+				out.write(allOut.get(i));
+				out.newLine();
 			}
 
 		} catch (IOException e) {
